@@ -7,7 +7,7 @@ const countEntrants = (entrants) => {
     adult: 0,
     child: 0,
     senior: 0,
-  }; 
+  };
 
   counting.adult = entrants.filter((adult) => adult.age >= 18 && adult.age < 50).length;
 
@@ -20,7 +20,7 @@ const countEntrants = (entrants) => {
 
 const calculateEntry = (entrants) => {
   if (!entrants) {
-    return 0; 
+    return 0;
   }
 
   if (((typeof entrants) === 'object') && (Object.entries(entrants).length === 0)) {
@@ -31,6 +31,5 @@ const calculateEntry = (entrants) => {
 
   return (adult * prices.adult + child * prices.child + senior * prices.senior);
 };
- // return calculate(entrants);
 
 module.exports = { calculateEntry, countEntrants };
