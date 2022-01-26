@@ -1,7 +1,8 @@
 const data = require('../data/zoo_data');
 
-function getOldestFromFirstSpecies(id) {
-  // seu código aqui
-}
+const getOldestFromFirstSpecies = (id) => {
+  
+  
+};
 
 module.exports = getOldestFromFirstSpecies;
