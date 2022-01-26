@@ -1,6 +1,6 @@
 const data = require('../data/zoo_data');
 
-// Todo o código realizado em parceria com Paulo Victor, turma 19 - Tribo A 
+// Todo o código realizado em parceria com Paulo Victor, turma 19 - Tribo A
 
 const { species } = data;
 
@@ -9,87 +9,87 @@ const locationAnimals = () => species
     const { location } = specie;
 
     acc[location] = species
-    .filter((animal) => animal.location === location)
-    .map((element) => element.name);
+      .filter((animal) => animal.location === location)
+      .map((element) => element.name);
 
     return acc;
-}, {});
+  }, {});
 
 const namedAnimals = () => species
   .reduce((acc, specie) => {
     const { location } = specie;
 
     acc[location] = species
-    .filter((animal) => animal.location === location)
-    .map((element) => {
-      const nameResidents = [];
-      element.residents.forEach((resident) => nameResidents.push(resident.name)); 
+      .filter((animal) => animal.location === location)
+      .map((element) => {
+        const nameResidents = [];
+        element.residents.forEach((resident) => nameResidents.push(resident.name)); 
       
-      const test = {};
-      test[element.name] = nameResidents;
-      return test;
-    });
+        const test = {};
+        test[element.name] = nameResidents;
+        return test;
+      });
     return acc;
-}, {});
+  }, {});
 
 const sortNames = (options) => species
   .reduce((acc, specie) => {
     const { location } = specie;
 
     acc[location] = species
-    .filter((animal) => animal.location === location)
-    .map((element) => {
-      const nameResidents = [];
-      element.residents.forEach((resident) => nameResidents.push(resident.name)); 
+      .filter((animal) => animal.location === location)
+      .map((element) => {
+        const nameResidents = [];
+        element.residents.forEach((resident) => nameResidents.push(resident.name)); 
       
-      const test = {};
-      test[element.name] = nameResidents.sort();
-      return test;
-    });
+        const test = {};
+        test[element.name] = nameResidents.sort();
+        return test;
+      });
     return acc;
-}, {});
+  }, {});
 
 const sortNamesWithSex = (options) => species
   .reduce((acc, specie) => {
     const { location } = specie;
 
     acc[location] = species
-    .filter((animal) => animal.location === location)
-    .map((element) => {
-      const nameResidents = [];
-      element.residents.forEach((resident) => {
-        if (resident.sex === options.sex) { 
-          nameResidents.push(resident.name);
-        }
-      }); 
-      
-      const test = {};
-      test[element.name] = nameResidents.sort();
-      return test;
-    });
+      .filter((animal) => animal.location === location)
+      .map((element) => {
+        const nameResidents = [];
+        element.residents.forEach((resident) => {
+          if (resident.sex === options.sex) { 
+            nameResidents.push(resident.name);
+          }
+        });
+
+        const test = {};
+        test[element.name] = nameResidents.sort();
+        return test;
+      });
     return acc;
-}, {});
+  }, {});
 
 const animalsBySex = (options) => species
-.reduce((acc, specie) => {
-  const { location } = specie;
+  .reduce((acc, specie) => {
+    const { location } = specie;
 
-  acc[location] = species
-  .filter((animal) => animal.location === location)
-  .map((element) => {
-    const namesReisdents = [];
-    element.residents.forEach((resident) => {
-      if (resident.sex === options.sex) { 
-        namesReisdents.push(resident.name);
-      }
-    });
-    
-    const test = {};
-    test[element.name] = namesReisdents;
-    return test;
-  });
-  return acc;
-}, {});
+    acc[location] = species
+      .filter((animal) => animal.location === location)
+      .map((element) => {
+        const namesReisdents = [];
+        element.residents.forEach((resident) => {
+          if (resident.sex === options.sex) {
+            namesReisdents.push(resident.name);
+          }
+        });
+
+        const test = {};
+        test[element.name] = namesReisdents;
+        return test;
+      });
+    return acc;
+  }, {});
 
 const validations = [
   undefined,
@@ -107,23 +107,21 @@ const whatToDo = [
   locationAnimals,
   namedAnimals,
   sortNames,
-  animalsBySex, 
+  animalsBySex,
   sortNamesWithSex,
 ];
 
 const getAnimalMap = (options) => {
- let callback; 
+  let callback;
 
- validations.find((element, index) => {
-   if (JSON.stringify(element) === JSON.stringify(options)) {
-     callback = whatToDo[index];
-   }
-   return callback;
- });
+  validations.find((element, index) => {
+    if (JSON.stringify(element) === JSON.stringify(options)) {
+      callback = whatToDo[index];
+    }
+    return callback;
+  });
 
- return callback(options);
+  return callback(options);
 };
 
 module.exports = getAnimalMap;
-
-console.log(getAnimalMap({ includeNames: true, sorted: true }));
