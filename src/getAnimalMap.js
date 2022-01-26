@@ -27,7 +27,7 @@ const locationAnimals = () => {
 //       (acc[location].push(name));
 
 //       const namingAnimal = {};
-//       namingAnimal[name] = []; 
+//       namingAnimal[name] = [];
 //       specie.name = namingAnimal;
 
 //       // residents.forEach((resident) => {
@@ -48,7 +48,7 @@ const locationAnimals = () => {
 
 // const namedAnimals = () => {
 
-//   const mapedAnimals = locationAnimals(); 
+//   const mapedAnimals = locationAnimals();
 
 //   mapedAnimals.NE = mapedAnimals.NE.map(callMap);
 
