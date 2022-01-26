@@ -32,11 +32,10 @@ const namedAnimals = () => {
       });
       return acc;
     }, {});
-
 };
 
 const getAnimalMap = (options) => {
-  if (!options) {
+  if (!options || ) {
     return locationAnimals();
   }
 
@@ -46,6 +45,10 @@ const getAnimalMap = (options) => {
 
   if (options.includeNames === true) {
     return namedAnimals();
+  }
+
+  if (options.sorted === true) {
+    return 'oi';
   }
 };
 
