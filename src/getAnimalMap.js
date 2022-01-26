@@ -19,27 +19,27 @@ const locationAnimals = () => {
 };
 
 // const namedAnimals = () => {
-//   const mapAnimals = { NE: [], NW: [], SE: [], SW: [],}; 
+//   const mapAnimals = { NE: [], NW: [], SE: [], SW: [],};
 
 //   return species
 //     .reduce((acc, specie) => {
 //       const { name, location, residents } = specie;
-//       (acc[location].push(name)); 
+//       (acc[location].push(name));
 
-//       const namingAnimal = {}; 
+//       const namingAnimal = {};
 //       namingAnimal[name] = []; 
 //       specie.name = namingAnimal;
-  
+
 //       // residents.forEach((resident) => {
 
 //       // });
-//       return acc; 
+//       return acc;
 //      }, mapAnimals);
-     
+
 // }
 
-// const callMap = (animal) => { 
-//   const namingAnimal = {}; 
+// const callMap = (animal) => {
+//   const namingAnimal = {};
 //   namingAnimal[animal] = [];
 
 //   animal = namingAnimal;
@@ -47,7 +47,7 @@ const locationAnimals = () => {
 // }
 
 // const namedAnimals = () => {
-  
+
 //   const mapedAnimals = locationAnimals(); 
 
 //   mapedAnimals.NE = mapedAnimals.NE.map(callMap);
@@ -66,10 +66,10 @@ const getAnimalMap = (options) => {
   }
 
   if (options.includeNames === true) {
-    return 'oi' // namedAnimals();
+    return 'oi'; // namedAnimals();
   }
 };
 
 module.exports = getAnimalMap;
 
-console.log(getAnimalMap({includeNames: true }));
+console.log(getAnimalMap({ includeNames: true }));
