@@ -8,7 +8,7 @@ const locationAnimals = () => {
     NW: [],
     SE: [],
     SW: [],
-  }
+  };
 
   mapAnimals.NE = species.filter((animal) => animal.location === 'NE').map((specie) => specie.name);
   mapAnimals.NW = species.filter((animal) => animal.location === 'NW').map((specie) => specie.name);
@@ -16,13 +16,12 @@ const locationAnimals = () => {
   mapAnimals.SW = species.filter((animal) => animal.location === 'SW').map((specie) => specie.name);
 
   return mapAnimals;
-}
+};
 
 const getAnimalMap = (options) => {
   if (!options) {
     return locationAnimals();
   }
-
 };
 
 module.exports = getAnimalMap;
