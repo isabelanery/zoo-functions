@@ -1,5 +1,7 @@
 const data = require('../data/zoo_data');
 
+// Todo código desenvolvido em parceria com Paulo Victor, turma 19 - Tribo A
+
 const { species, employees } = data;
 
 const createCoverageAll = () => employees.map((worker) => { 
@@ -13,18 +15,27 @@ const createCoverageAll = () => employees.map((worker) => {
     return object;
 });
 
+const findName = (obj) => Object.values(employees)// createCoverageAll()
+    .some((element) => element
+    .firstName === (obj.name) || element.lastName === (obj.name));
+  
+const findId = (obj) => Object.values(employees).some((element) => element.id === obj.id);
+
 const getEmployeesCoverage = (obj) => {
   if (!obj) {
     return createCoverageAll();
   }
 
-  if (obj.name !== undefined) {
-    return createCoverageAll().find((element) => element.fullName.includes(obj.name) === true);
+  if (findName(obj)) {
+    return createCoverageAll().find((element) => element.fullName
+    .split(' ')[0] === (obj.name) || element.fullName.split(' ')[1] === (obj.name));
   }
-    
-  if (obj.id !== undefined) {
+
+  if (findId(obj)) {
     return createCoverageAll().find((element) => element.id === obj.id);
   }
+
+  throw new Error('Informações inválidas');
 };
 
 module.exports = getEmployeesCoverage;
