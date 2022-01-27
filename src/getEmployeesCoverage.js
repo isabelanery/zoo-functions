@@ -6,18 +6,18 @@ const { species, employees } = data;
 
 const createCoverageAll = () => employees.map((worker) => {
   const object = {
-    id: worker.id, 
-    fullName: `${worker.firstName} ${worker.lastName}`, 
-    species: worker.responsibleFor.map((id) => species.find((animal) => animal.id === id).name), 
+    id: worker.id,
+    fullName: `${worker.firstName} ${worker.lastName}`,
+    species: worker.responsibleFor.map((id) => species.find((animal) => animal.id === id).name),
     locations: worker.responsibleFor.map((id) => species
-    .find((animal) => animal.id === id).location),
-  }; 
+      .find((animal) => animal.id === id).location),
+  };
   return object;
 });
 
 const findName = (obj) => Object.values(employees)
   .some((element) => element
-  .firstName === (obj.name) || element.lastName === (obj.name));
+    .firstName === (obj.name) || element.lastName === (obj.name));
 
 const findId = (obj) => Object.values(employees).some((element) => element.id === obj.id);
 
