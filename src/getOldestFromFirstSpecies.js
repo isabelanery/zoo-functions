@@ -1,8 +1,10 @@
 const data = require('../data/zoo_data');
 
+// Todo código desenvolvido em parceria com Paulo Victor, turma 19 - Tribo A
+
 const getOldestFromFirstSpecies = (id) => {
   const animalId = data.employees.find((employee) => employee.id === id).responsibleFor[0];
-  // console.log(animalId);
+
   return Object.values(data.species.find((animal) => animal.id === animalId)
     .residents.sort((a, b) => b.age - a.age)[0]);
 };
