@@ -23,8 +23,8 @@ const namedAnimals = () => species
       .filter((animal) => animal.location === location)
       .map((element) => {
         const nameResidents = [];
-        element.residents.forEach((resident) => nameResidents.push(resident.name)); 
-      
+        element.residents.forEach((resident) => nameResidents.push(resident.name));
+
         const test = {};
         test[element.name] = nameResidents;
         return test;
@@ -40,8 +40,8 @@ const sortNames = (options) => species
       .filter((animal) => animal.location === location)
       .map((element) => {
         const nameResidents = [];
-        element.residents.forEach((resident) => nameResidents.push(resident.name)); 
-      
+        element.residents.forEach((resident) => nameResidents.push(resident.name));
+
         const test = {};
         test[element.name] = nameResidents.sort();
         return test;
@@ -58,7 +58,7 @@ const sortNamesWithSex = (options) => species
       .map((element) => {
         const nameResidents = [];
         element.residents.forEach((resident) => {
-          if (resident.sex === options.sex) { 
+          if (resident.sex === options.sex) {
             nameResidents.push(resident.name);
           }
         });
