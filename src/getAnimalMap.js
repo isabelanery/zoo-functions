@@ -1,6 +1,7 @@
 const data = require('../data/zoo_data');
 
 // Todo o código realizado em parceria com Paulo Victor, turma 19 - Tribo A
+// não nos orgulhamos desse código. 
 
 const { species } = data;
 
@@ -92,23 +93,39 @@ const animalsBySex = (options) => species
   }, {});
 
 const validations = [
-  undefined,
+  (undefined),
   { sex: 'female' },
+  { sex: 'male' },
   { sex: 'female', sorted: true },
+  { sex: 'male', sorted: true },
+  { sex: 'female', sorted: false },
+  { sex: 'male', sorted: false },
   { includeNames: true },
   { includeNames: true, sorted: true },
   { includeNames: true, sex: 'female' },
   { includeNames: true, sex: 'female', sorted: true },
+  { includeNames: true, sex: 'male', sorted: false },
+  { includeNames: true, sex: 'male', sorted: true },
+  { includeNames: true, sex: 'female', sorted: false },
+  { includeNames: true, sex: 'female', sorted: true },
 ];
 
 const whatToDo = [
-  locationAnimals,
-  locationAnimals,
-  locationAnimals,
-  namedAnimals,
-  sortNames,
-  animalsBySex,
-  sortNamesWithSex,
+  locationAnimal,
+  locationAnimal,
+  locationAnimal,
+  locationAnimal,
+  locationAnimal,
+  locationAnimal,
+  locationAnimal,
+  showAnimalName,
+  sortedTrue,
+  includeNameAndSex,
+  sortedTrueWithSex,
+  includeNameAndSex,
+  sortedTrueWithSex,
+  includeNameAndSex,
+  sortedTrueWithSex,
 ];
 
 const getAnimalMap = (options) => {
